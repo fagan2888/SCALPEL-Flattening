@@ -4,6 +4,7 @@ import org.apache.log4j.{Level, Logger}
 import org.apache.spark.sql.{DataFrame, SQLContext}
 import fr.polytechnique.cmap.cnam.flattening.FlatteningConfig.JoinTableConfig
 import fr.polytechnique.cmap.cnam.utilities.DFUtils._
+import org.apache.spark.sql.functions.broadcast
 
 class FlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
 
@@ -42,7 +43,7 @@ class FlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
   }
 
   val joinFunction: (DataFrame, DataFrame) => DataFrame =
-    (accumulator, tableToJoin) => accumulator.join(tableToJoin, foreignKeys, "left_outer")
+    (accumulator, tableToJoin) => accumulator.join(broadcast(tableToJoin), foreignKeys, "left_outer")
 
   def logger: Logger = Logger.getLogger(getClass)
 
