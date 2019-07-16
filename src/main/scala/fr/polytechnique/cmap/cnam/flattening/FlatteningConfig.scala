@@ -69,7 +69,7 @@ object FlatteningConfig extends ConfigLoader {
     val defaultPath = "flattening/config/main.conf"
     loadConfigWithDefaults[FlatteningConfig](
       path,
-      defaultPath//, env
+      defaultPath, env
     )
   }
 
