@@ -17,11 +17,11 @@ trait ConfigLoader {
  */
   protected[cnam] def loadConfigWithDefaults[C <: Config : ClassTag : ConfigReader](
     configPath: String,
-    defaultsPath: String,
-    env: String): C = {
+    defaultsPath: String//,
+    /*env: String*/): C = {
 
-    val defaultConfig = ConfigFactory.parseResources(defaultsPath).resolve.getConfig(env)
-    val config = ConfigFactory.parseFile(new java.io.File(configPath)).resolve.withFallback(defaultConfig).resolve
+    //val defaultConfig = ConfigFactory.parseResources(defaultsPath).resolve.getConfig(env)
+    val config = ConfigFactory.parseFile(new java.io.File(configPath))//.resolve.withFallback(defaultConfig).resolve
     pureconfig.loadConfigOrThrow[C](config)
   }
 
