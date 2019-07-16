@@ -66,7 +66,10 @@ object FlatteningConfig extends ConfigLoader {
     */
   def load(path: String, env: String): FlatteningConfig = {
     val defaultPath = "flattening/config/main.conf"
-    loadConfigWithDefaults[FlatteningConfig](path, defaultPath, env)
+    loadConfigWithDefaults[FlatteningConfig](
+      path,
+      defaultPath//, env
+    )
   }
 
   def toConfigPartition(

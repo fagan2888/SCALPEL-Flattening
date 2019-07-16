@@ -26,7 +26,10 @@ object StatisticsConfig extends ConfigLoader {
     */
   def load(path: String, env: String): StatisticsConfig = {
     val defaultPath = "statistics/main.conf"
-    loadConfigWithDefaults[StatisticsConfig](path, defaultPath, env)
+    loadConfigWithDefaults[StatisticsConfig](
+      path,
+      defaultPath//, env
+    )
   }
 
 }
