@@ -43,7 +43,7 @@ class FlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
   }
 
   val joinFunction: (DataFrame, DataFrame) => DataFrame =
-    (accumulator, tableToJoin) => accumulator.join(broadcast(tableToJoin), foreignKeys, "left_outer")
+    (accumulator, tableToJoin) => accumulator.join(tableToJoin, foreignKeys, "left_outer")
 
   def logger: Logger = Logger.getLogger(getClass)
 
