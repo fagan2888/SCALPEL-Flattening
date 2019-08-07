@@ -34,6 +34,7 @@ HAD_B;ETA_NUM_EPMSI;$;10;0;String
 HAD_B;ETA_NUM_TWO;$;10;0;String
 HAD_B;ETA_NUM_ESMS;$;2;0;String
 HAD_B;ETA_NUM_GEO;$;2;0;String
+HAD_B;ETA_NUM_RET;$;1;0;String
 HAD_B;FAC_NUM;;3;0;Integer
 HAD_B;FIN_ANN_SEQ;;4;0;Integer
 HAD_B;FIN_MOI_SEQ;;3;0;Integer
