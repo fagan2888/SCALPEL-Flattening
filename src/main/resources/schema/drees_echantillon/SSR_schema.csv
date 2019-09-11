@@ -20,6 +20,7 @@ SSR_B;BDI_COD;$;5;0;String
 SSR_B;RHS_ANT_SEJ_ENT;;4;0;Integer
 SSR_B;MOI_ANN_SOR_SEJ;$;6;0;String
 SSR_B;HOS_TYP_UM;$;2;0;String
+SSR_B;TYP_US;$;5;0;String
 SSR_B;AUT_TYP_UM;$;3;0;String
 SSR_B;ENT_MOD;$;2;0;String
 SSR_B;ENT_PRV;$;2;0;String
@@ -45,12 +46,18 @@ SSR_B;NBR_DGM;;2;0;Integer
 SSR_B;NBR_CCAR;;3;0;Integer
 SSR_B;NBR_CCAM;;2;0;Integer
 SSR_B;GRC_GME;$;6;0;String
+SSR_B;GMT_NUM;$;10;0;String
 SSR_B;GRC_TOP_ERR;$;2;0;String
 SSR_B;GRG_GME;$;6;0;String
 SSR_B;GRG_TOP_ERR;$;2;0;String
 SSR_B;TYP_GEN_RHA;;2;0;Integer
 SSR_B;BDI_DEP;$;3;0;String
+SSR_B;EXB_TOP;;2;0;Integer
+SSR_B;EXB_NBJ;;4;0;Integer
+SSR_B;EXH_NBJ;;4;0;Integer
 SSR_B;ETA_NUM_GEO;$;9;0;String
+SSR_B;LIT_DEDIE;;4;0;Integer
+SSR_B;SCORE_RR;;8;2;Double
 SSR_B;NBR_DGN;;3;0;Integer
 SSR_B;NBR_CSARR;;3;0;Integer
 SSR_B;REHOS_PRJ_THP;;2;0;Integer
