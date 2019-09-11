@@ -36,8 +36,16 @@ class FlatteningMainSuite extends SharedContext {
 
     //Then
     import fr.polytechnique.cmap.cnam.utilities.DFUtils._
+
     expectedDfs.foreach {
+
       case (name, df) =>
+        if (debug) {
+          df.printSchema()
+          result(name).printSchema()
+          df.show(100, false)
+          result(name).show(100, false)
+        }
         assert(df.sameAs(result(name), true))
     }
   }
@@ -47,7 +55,7 @@ class FlatteningMainSuite extends SharedContext {
     //Given
     val conf = FlatteningConfig.load("", "test")
     val expectedMCO: DataFrame = sqlContext.read.option("mergeSchema", "true").parquet("src/test/resources/flattening/parquet-table/flat_table/MCO/")
-    val expectedDCIR: DataFrame = sqlContext.read.option("mergeSchema", "true").parquet("src/test/resources/flattening/parquet-table/flat_table/by_month/DCIR/")
+    val expectedDCIR: DataFrame = sqlContext.read.option("mergeSchema", "true").parquet("src/test/resources/flattening/parquet-table/flat_table/DCIR/")
     val configTest = conf.copy(join = conf.join.map(_.copy(inputPath = Some("src/test/resources/flattening/parquet-table/single_table"))))
 
     //When

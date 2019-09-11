@@ -131,6 +131,26 @@ class FlatTableSuite extends SharedContext {
     assert(result sameAs expectedDf)
   }
 
+  "WriteAsParquet" should "flatten SSR_SEJ and write it in the correct path" in {
+
+    // Given
+    val conf = FlatteningConfig.load("", "test")
+    val parquetTablesPath = "src/test/resources/flattening/parquet-table/single_table"
+    val configTest = conf.joinTableConfigs.head.copy(inputPath = Some(parquetTablesPath))
+    val flattenedTableTest = new FlatTable(sqlContext, configTest)
+    val resultPath = conf.flatTablePath
+    val expectedDf = sqlContext.read.parquet("src/test/resources/flattening/parquet-table/flat_table/SSR_SEJ")
+
+
+    // When
+    flattenedTableTest.writeAsParquet()
+    val result = sqlContext.read.parquet(resultPath)
+
+    // Then
+    assert(resultPath == flattenedTableTest.outputBasePath)
+    assert(result sameAs expectedDf)
+  }
+
   "WriteAsParquet" should "flatten DCIR and write it in the correct path" in {
 
     // Given
