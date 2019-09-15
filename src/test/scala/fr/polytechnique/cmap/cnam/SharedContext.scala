@@ -21,7 +21,7 @@ abstract class SharedContext extends FlatSpecLike with BeforeAndAfterAll with Be
   TimeZone.setDefault(TimeZone.getTimeZone("UTC"))
 
   private var _spark: SparkSession = _
-  protected val debug: Boolean = true
+  protected val debug: Boolean = false
 
   protected def spark: SparkSession = _spark
   protected def sqlContext: SQLContext = _spark.sqlContext
