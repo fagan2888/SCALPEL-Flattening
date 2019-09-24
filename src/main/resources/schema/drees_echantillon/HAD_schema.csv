@@ -75,7 +75,7 @@ HAD_C;COH_SEX_RET;$;2;0;String
 HAD_C;DAT_RET;$;2;0;String
 HAD_C;ENT_AM;;6;0;Integer
 HAD_C;ENT_ANN;$;2;0;String
-HAD_C;ENT_DAT;;9;0;Integer
+HAD_C;ENT_DAT;$;8;0;String
 HAD_C;ENT_MOI;$;2;0;String
 HAD_C;ETA_NUM_EPMSI;$;10;0;String
 HAD_C;ETA_NUM_TWO;$;10;0;String
