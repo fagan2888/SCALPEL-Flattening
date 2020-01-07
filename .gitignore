@@ -91,9 +91,9 @@ fabric.properties
 
 ### PMSI test databases ###
 scripts/.ipynb_checkpoints/PMSIFlattening creation de la base de test-checkpoint.ipynb
-src/test/resources/flattening/parquet-table/flat_table/PMSI-Flat/table_centrale.parquet
-src/test/resources/flattening/parquet-table/flat_table/PMSI-Flat/tc_MCO_A.parquet
-src/test/resources/flattening/parquet-table/flat_table/PMSI-Flat/tc_MCO_D.parquet
-src/test/resources/flattening/parquet-table/flat_table/PMSI-Flat/tc_MCO_UM.parquet
-src/test/resources/flattening/parquet-table/flat_table/PMSI-Flat/PMSI_flat.parquet
-
+scripts/PMSIFlattening creation de la base de test-checkpoint.ipynb
+src/test/resources/flattening/parquet-table/flat_table/PMSI_Flat/table_centrale.parquet
+src/test/resources/flattening/parquet-table/flat_table/PMSI_Flat/tc_MCO_A.parquet
+src/test/resources/flattening/parquet-table/flat_table/PMSI_Flat/tc_MCO_D.parquet
+src/test/resources/flattening/parquet-table/flat_table/PMSI_Flat/tc_MCO_UM.parquet
+src/test/resources/flattening/parquet-table/flat_table/PMSI_Flat/PMSI_flat.parquet
