@@ -19,7 +19,7 @@ class SSRFlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
   )
   val outputBasePath: String = config.flatOutputPath.get
   val foreignKeys: List[String] = config.joinKeys
-  val patientKeys: List[String] = config.joinKeysPatient
+  val patientKeys: List[String] = config.joinKeysPatient.get
   val tableName: String = config.name
   val monthlyPartitionColumn: Option[String] = config.monthlyPartitionColumn
   val saveMode: String = config.flatTableSaveMode

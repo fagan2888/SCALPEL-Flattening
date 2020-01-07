@@ -70,7 +70,7 @@ object Flattening {
         else {
           logger.info("join SSR table " + config.name + " with Pmsi logic")
           new SSRFlatTable(sqlContext, config).writeAsParquet()
-          OperationMetadata(config.name, config.flatOutputPath.get, "flat_table", config.mainTableName :: config.tablesToJoin, config.joinKeys :: config.joinKeysPatient.get)
+          OperationMetadata(config.name, config.flatOutputPath.get, "flat_table", config.mainTableName :: config.tablesToJoin, config.joinKeys)
         }
       }
     }
