@@ -67,7 +67,7 @@ class SSRFlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
 
   def joinByYear(year: Int): Table = {
     val name = s"$tableName/year=$year"
-    val centralTableDF: DataFrame = joinFunction(mainTable.filterByYear(year).drop("year"),
+    val centralTableDF: DataFrame = joinFunctionPatientKeys(mainTable.filterByYear(year).drop("year"),
       pmsiPatientTable.filterByYearAndAnnotate(year, patientKeys)).cache()
     val joinedDF = tablesToJoin
       .map(table => table.filterByYearAndAnnotate(year, foreignKeys))
@@ -77,7 +77,7 @@ class SSRFlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
 
   def joinByYearAndDate(year: Int, month: Int, monthCol: String): Table = {
     val name = s"$tableName/year=$year/month=$month"
-    val centralTableDF: DataFrame = joinFunction(mainTable.filterByYearAndMonth(year, month, monthCol).drop("year"),
+    val centralTableDF: DataFrame = joinFunctionPatientKeys(mainTable.filterByYearAndMonth(year, month, monthCol).drop("year"),
       pmsiPatientTable.filterByYearMonthAndAnnotate(year, month, patientKeys, monthCol))
     val joinedDF = tablesToJoin
       .map(table => table.filterByYearMonthAndAnnotate(year, month, foreignKeys, monthCol))
@@ -88,6 +88,9 @@ class SSRFlatTable(sqlContext: SQLContext, config: JoinTableConfig) {
 
   val joinFunction: (DataFrame, DataFrame) => DataFrame =
     (accumulator, tableToJoin) => accumulator.join(tableToJoin, foreignKeys, "left_outer")
+
+  val joinFunctionPatientKeys: (DataFrame, DataFrame) => DataFrame =
+    (accumulator, tableToJoin) => accumulator.join(tableToJoin, patientKeys, "left_outer")
 
   def logger: Logger = Logger.getLogger(getClass)
 
